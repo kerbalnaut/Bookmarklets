@@ -1,0 +1,22 @@
+javascript:(function()%7B(function() %7Bvar ASSET %3D"https%3A%2F%2Fdrive.google.com
+%2Fuc%3Fexport%3Ddownload%26id%3D18d9LIT8AXkoKd4AfJQKPhKSaVGD-VJYB"%3Bvar
+WIDTH %3D 156%3Bvar HEIGHT %3D 156%3Bvar VERT_DIRECTIONS %3D %5B"up"%2C
+"down"%5D%3Bvar HORI_DIRECTIONS %3D %5B"left"%2C "right"%5D%3Bvar 
+SCROLL_AMOUNTS %3D %5B6%2C 8%2C 11%2C 15%5D%3Bvar SCROLL_DELAYS
+%3D %5B60%2C 85%2C 100%2C 130%5D%3Bfunction _assign(obj%2C attrs)
+%7Bfor (var key in attrs) %7Bobj%5Bkey%5D %3D attrs%5Bkey%5D%3B%7D%7Dfunction 
+_choice(options) %7Breturn options%5BparseInt(Math.random() * 
+options.length)%5D%3B%7Dfunction add() %7Bvar outerMarquee %3D 
+document.createElement("marquee")%3B_assign(outerMarquee%2C %7Bdirection%3A
+_choice(VERT_DIRECTIONS)%2Cbehavior%3A "alternate"%2CscrollAmount%3A
+_choice(SCROLL_AMOUNTS)%2CscrollDelay%3A _choice(SCROLL_DELAYS)%7D)%3B_assign(outerMarquee.style%2C
+%7Bposition%3A "fixed"%2Cwidth%3A "100%25"%2Cheight%3A "100%25"%2Ctop%3A 
+0%2Cleft%3A 0%2CzIndex%3A 999999%2CpointerEvents%3A "none"%7D)%3Bvar innerMarquee
+%3D document.createElement("marquee")%3B_assign(innerMarquee%2C %7Bbehavior%3A
+"alternate"%2Cdirection%3A _choice(HORI_DIRECTIONS)%2CscrollAmount%3A _choice(SCROLL_AMOUNTS)%2CscrollDelay%3A
+_choice(SCROLL_DELAYS)%7D)%3B_assign(innerMarquee.style%2C %7B width%3A 
+"100%25" %7D)%3BouterMarquee.appendChild(innerMarquee)%3Bvar
+img %3D document.createElement("img")%3Bimg.src %3D ASSET%3BinnerMarquee.appendChild(img)%3Bvar body %3D document.body%3Bif 
+(body) %7Bbody.appendChild(outerMarquee)%3B%7D%7Dvar original %3D window.SeaDragon%3Bvar 
+self %3D (window.SeaDragon %3D %7Badd%3A add%2CnoConflict%3A function() %7Bwindow.SeaDragon %3D
+original%3Breturn self%3B%7D%7D)%3B%7D)()%3Bwindow.SeaDragon.add()%7D)()
